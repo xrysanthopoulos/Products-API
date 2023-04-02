@@ -1,0 +1,40 @@
+version: '3.9'
+
+networks:
+  laravel:
+
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 8088:80
+    volumes:
+      - $PWD/src:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on: 
+      - php
+    networks: 
+      - laravel
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    volumes: 
+      - $PWD/src:/var/www
+    ports:
+      - "9000:9000"
+    networks: 
+      - laravel
+  
+  composer:
+    image: composer:2.5
+    volumes:
+      - $PWD/src:/app
+    command: install
+    networks:
+      - laravel
+

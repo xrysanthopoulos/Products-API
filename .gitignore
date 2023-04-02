@@ -1,0 +1,8 @@
+/src/vendor
+/src/.idea
+/srcHomestead.json
+/srcHomestead.yaml
+.env
+/src.phpunit.result.cache
+/src/resources/views/vendor
+/src/storage/logs

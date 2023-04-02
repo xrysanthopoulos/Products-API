@@ -1,0 +1,5 @@
+Create DB.
+CREATE DATABASE products_api;
+
+Create table.
+CREATE TABLE `products_api`.`Products` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(256) NOT NULL, `price` int(11) NOT NULL PRIMARY KEY (`id`) )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT;
